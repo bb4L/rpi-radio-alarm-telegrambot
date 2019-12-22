@@ -1,0 +1,8 @@
+certifi==2019.11.28
+chardet==3.0.4
+idna==2.8
+python-dotenv==0.10.3
+requests==2.22.0
+urllib3==1.25.7
+python-telegram-bot
+rpi-radio-alarm==0.3.4

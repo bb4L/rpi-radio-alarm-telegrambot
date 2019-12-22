@@ -9,10 +9,14 @@ class RadioResponseParser(ResponseParser):
                           COMMANDS.STOP_RADIO: self.__stop_radio}
 
     def __get_alarms(self, args, response):
-        return super().__get_alarms(args, response)
+        resp = 'Alarms \n'
+        for idx, alarm in enumerate(response):
+            resp = resp + '\n\t alarm '+ str(idx) + self.__alarm_string(alarm, True)
+        return resp
 
     def __get_alarm(self, args, response):
-        return super().__get_alarm(args, response)
+        resp = 'alarm ' + str(args) + self.__alarm_string(response[0], True)
+        return resp
 
     def __start_radio(self, args, response):
         return self.__radio_string(args, response)
@@ -25,7 +29,6 @@ class RadioResponseParser(ResponseParser):
 
     @staticmethod
     def __alarm_string(alarm, preline):
-        print(alarm)
         if preline:
             prefix = '\n\t'
         else:
